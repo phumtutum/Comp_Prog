@@ -30,9 +30,13 @@ struct edge
  
 ll tata[NMAX],h[NMAX],rez[NMAX];
 ll cnt;
- 
+
+//tata[i] = the node to which i is the direct children
+//h[i] = the height of the set created by i 
+
 ll findSet(ll node)
 {
+    //path compression
     if(node != tata[node])
         tata[node] = findSet(tata[node]);
     return tata[node];
@@ -97,7 +101,6 @@ int main()
  
     sort(q+1 , q+Q+1,cmp);
     sort(edges+1 , edges+N , cmp2);
-    //todo cmpurile
  
     for(i = 1,j = 0 ; i <= Q ; ++i)
     {
