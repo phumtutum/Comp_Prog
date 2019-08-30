@@ -39,8 +39,8 @@ int main()
     char ch = 'a';
     for(i = 1 ; i <= N ; ++i)
     {
-        //daca p[i] a fost vazut anterior in q[1..i-1] reduce diferenta
-        //daca nu, creste diferenta
+        //if p[i] has been seen previously in q[1..(i-1)] then decrease the difference
+        //otherwise increase it
         if(vizq[p[i]])
         {
             dif--;
@@ -48,8 +48,8 @@ int main()
         else
             dif++;
         vizp[p[i]] = 1;
-        //daca q[i] a fost vazut anterior in p[1..i] reduce diferenta
-        //daca nu, creste diferenta
+        //if q[i] has been seen previously in p[1..i] then decrease the difference
+        //otherwise increase it
         if(vizp[q[i]])
         {
             dif--;
@@ -61,7 +61,7 @@ int main()
         s[q[i]] = s[p[i]] = ch;
         if(dif == 0)
         {
-            //pot creste valoarea
+            //if the difference is 0 the value can be increased
             if(ch < 'z')
                 ch++;
         }
